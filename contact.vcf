@@ -1,11 +1,11 @@
 BEGIN:VCARD
 VERSION:3.0
-N:이;지혜;;;
-FN:이지혜
-ORG:주식회사 피클플러스;프로덕트 디자인팀
-TITLE:Product Design Team Lead
-TEL;TYPE=CELL:+82-10-2053-0301
-EMAIL;TYPE=WORK:jihye.lee@pickle.plus
+N:안;누리;;;
+FN:안누리
+ORG:주식회사 피클플러스;제품그룹
+TITLE:Product Manger @CoreSqaud
+TEL;TYPE=CELL:+82-10-5223-5914
+EMAIL;TYPE=WORK:nuri.an@pickle.plus
 URL:https://www.pickle.plus
 ADR;TYPE=WORK:;;한강대로 416 서울스퀘어 14층 138호;중구;서울;;대한민국
 END:VCARD
