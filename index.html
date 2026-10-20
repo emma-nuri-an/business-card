@@ -173,7 +173,7 @@
     text-align: center; font-size: 4cqw; color: var(--text-2);
   }
 
-  /* 2. 채용 / 3. 커피챗 */
+  /* 2. 인터뷰 / 3. 커피챗 */
   .frame--hiring { background: var(--pop-green); color: var(--black); }
   .frame--coffee { background: rgba(0, 70, 25, 0.95); color: var(--white); }   /* 다크그린 #004619, opacity 95% */
   .poster {
@@ -365,13 +365,13 @@
         </div>
       </div>
 
-      <!-- 2. 채용 -->
-      <div class="slide" data-caption="hiring">
-        <a class="frame frame--hiring" id="job-link" href="#" target="_blank" rel="noopener">
+      <!-- 2. 인터뷰 -->
+      <div class="slide" data-caption="interview">
+        <a class="frame frame--hiring" id="interview-link" href="#" target="_blank" rel="noopener">
           <div class="poster">
-            <span class="eyebrow">We're hiring</span>
-            <p class="headline">프로덕트<br>매니저를<br>찾고 있어요</p>
-            <div class="poster-foot"><span>채용 공고 보기</span><span>↗</span></div>
+            <span class="eyebrow">Interview</span>
+            <p class="headline">피클플러스의<br>A to Z를<br>책임지다</p>
+            <div class="poster-foot"><span>인터뷰 읽기</span><span>↗</span></div>
           </div>
         </a>
       </div>
@@ -399,7 +399,7 @@
     <nav class="pill" id="pill" aria-label="카드 넘기기">
       <span class="pill-indicator" id="pill-indicator"></span>
       <button type="button" data-index="0" class="is-active">명함</button>
-      <button type="button" data-index="1">채용</button>
+      <button type="button" data-index="1">인터뷰</button>
       <button type="button" data-index="2">커피챗</button>
     </nav>
   </div>
@@ -495,7 +495,13 @@
   const caption = document.getElementById("caption");
   let active = 0;
 
-  document.getElementById("job-link").href = CONFIG.jobUrl;
+  // 인터뷰 카드 링크 (주소가 비어 있으면 눌러도 이동하지 않음)
+  const interviewLink = document.getElementById("interview-link");
+  if (CONFIG.interviewUrl) {
+    interviewLink.href = CONFIG.interviewUrl;
+  } else {
+    interviewLink.addEventListener("click", (e) => e.preventDefault());
+  }
 
   // ---------- 아래 설명 한 줄 ----------
   function renderCaption() {
@@ -508,17 +514,6 @@
       save.download = "안누리_피클플러스.vcf";
       save.textContent = "연락처 저장";
       caption.append(button("메일 복사", copyEmail), textNode("·"), save);
-    } else if (key === "hiring") {
-      const interview = document.createElement("a");
-      interview.className = "caption-btn";
-      interview.textContent = "프로덕트 매니저 인터뷰 읽기";
-      if (CONFIG.interviewUrl) {
-        interview.href = CONFIG.interviewUrl; interview.target = "_blank"; interview.rel = "noopener";
-      } else {
-        interview.href = "#";
-        interview.addEventListener("click", (e) => e.preventDefault());
-      }
-      caption.append(interview);
     }
   }
   function textNode(t) { const s = document.createElement("span"); s.textContent = t; return s; }
