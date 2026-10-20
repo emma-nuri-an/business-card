@@ -1,0 +1,1 @@
+Based on [jerry-jihyelee/business-card](https://github.com/jerry-jihyelee/business-card) by 이지혜.
